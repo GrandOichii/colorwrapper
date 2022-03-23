@@ -2,7 +2,6 @@ package colorwrapper
 
 import (
 	"fmt"
-	"log"
 	"strings"
 
 	"github.com/fatih/color"
@@ -44,7 +43,6 @@ var (
 )
 
 func init() {
-	log.Println("colorwrapper - initializing colors")
 	for key, value := range fgColorMap {
 		bgColorMap[key] = value + 10
 	}
