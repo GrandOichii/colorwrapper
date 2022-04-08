@@ -48,6 +48,7 @@ func init() {
 	}
 }
 
+// Adds the color pair to all colors
 func addColorPair(colorPair string) error {
 	// log.Printf("colorwrapper - adding color pair %v", colorPair)
 	colors := strings.Split(colorPair, "-")
@@ -76,6 +77,7 @@ func addColorPair(colorPair string) error {
 	return nil
 }
 
+// Returns attributes of the color pair
 func getAttributes(colorPair string) ([]string, error) {
 	split := strings.Split(colorPair, "-")
 	if len(split) < 2 {
@@ -84,6 +86,7 @@ func getAttributes(colorPair string) ([]string, error) {
 	return split[2:], nil
 }
 
+// Returns the colored text
 func GetColored(colorPair string, format string, a ...interface{}) (string, error) {
 	c, has := colorPairMap[colorPair]
 	if !has {
@@ -108,16 +111,19 @@ func GetColored(colorPair string, format string, a ...interface{}) (string, erro
 	return actualc.Sprintf(format, a...), nil
 }
 
+// Prints the message
 func Print(colorPair string, message string) error {
 	return Printf(colorPair, message)
 }
 
+// Prints the message with a newline at the end
 func Println(colorPair string, message string) error {
 	err := Print(colorPair, message)
 	fmt.Println()
 	return err
 }
 
+// Prints formatted text to console
 func Printf(colorPair string, format string, a ...interface{}) error {
 	message, err := GetColored(colorPair, format, a...)
 	if err != nil {
