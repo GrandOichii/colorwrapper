@@ -8,6 +8,7 @@ import (
 )
 
 var (
+	// Map of all attributes
 	attributes = map[string]color.Attribute{
 		"reset":      color.Reset,
 		"italic":     color.Italic,
@@ -20,6 +21,7 @@ var (
 		"blinkslow":  color.BlinkSlow,  // don't work for some reason
 		"blinkrapid": color.BlinkRapid, // don't work for some reason
 	}
+	// Foreground color map
 	fgColorMap = map[string]color.Attribute{
 		"black":     color.FgBlack,
 		"red":       color.FgRed,
@@ -38,7 +40,9 @@ var (
 		"hicyan":    color.FgHiCyan,
 		"hiwhite":   color.FgHiWhite,
 	}
-	bgColorMap   = map[string]color.Attribute{}
+	// Background color map
+	bgColorMap = map[string]color.Attribute{}
+	// Color pair map
 	colorPairMap = map[string]*color.Color{}
 )
 
